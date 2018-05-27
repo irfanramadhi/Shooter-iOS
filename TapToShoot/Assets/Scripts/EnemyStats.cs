@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoreGamePlay : MonoBehaviour
+public class EnemyStats : MonoBehaviour
 {
+    public int healthPoint;
 
 	// Use this for initialization
 	void Start ()
     {
-		
 
+        healthPoint = 50;
 
 	}
 	
@@ -17,7 +18,10 @@ public class CoreGamePlay : MonoBehaviour
 	void Update ()
     {
 		
-
+        if(healthPoint < 0)
+        {
+            Destroy(this.gameObject);
+        }
 
 	}
 }
