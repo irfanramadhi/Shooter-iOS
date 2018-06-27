@@ -35,14 +35,14 @@ public class TouchManager : MonoBehaviour
 												 Camera.main.nearClipPlane);
 			Vector3 mousePosF = Camera.main.ScreenToWorldPoint(mousePosFar);
 			Vector3 mousePosN = Camera.main.ScreenToWorldPoint(mousePosNear);
-			//Debug.DrawRay(mousePosN,mousePosF-mousePosN, Color.green);
+            //Debug.DrawRay(mousePosN,mousePosF-mousePosN, Color.green);
 
-
-			RaycastHit hit;
+            RaycastHit hit;
 
         	if (Physics.Raycast(mousePosN, mousePosF-mousePosN, out hit) && shootDelayCounter < 0)
         	{
-                GameObject theEnemy = GameObject.FindGameObjectWithTag("Enemy");
+                print(hit.collider.name);
+                GameObject theEnemy = GameObject.Find(hit.collider.name);
                 EnemyStats enemyStats = theEnemy.GetComponent<EnemyStats>();
                 //Instantiate(explosion, hit.transform.position, Quaternion.identity);
                 enemyStats.healthPoint -= weaponDamage;
