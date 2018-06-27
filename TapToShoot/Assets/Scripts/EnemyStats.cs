@@ -10,7 +10,7 @@ public class EnemyStats : MonoBehaviour
 	void Start ()
     {
 
-        healthPoint = 50;
+        healthPoint = 20;
 
 	}
 	
@@ -18,7 +18,7 @@ public class EnemyStats : MonoBehaviour
 	void Update ()
     {
 		
-        if(healthPoint < 0)
+        if(healthPoint <= 0)
         {
             Destroy(this.gameObject);
         }

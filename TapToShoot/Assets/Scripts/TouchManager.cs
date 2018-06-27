@@ -5,7 +5,6 @@ public class TouchManager : MonoBehaviour
 {
     private float shootDelayCounter;
 
-    private EnemyStats enemyStats;
     public GameObject explosion;
     public float shootDelay = 0.75f;
     
@@ -15,7 +14,8 @@ public class TouchManager : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-
+        //GameObject theEnemy = GameObject.Find("Cube(Clone)");
+        //EnemyStats enemyStats = theEnemy.GetComponent<EnemyStats>();
         weaponDamage = 10;
 
 	}
@@ -42,8 +42,11 @@ public class TouchManager : MonoBehaviour
 
         	if (Physics.Raycast(mousePosN, mousePosF-mousePosN, out hit) && shootDelayCounter < 0)
         	{
+                GameObject theEnemy = GameObject.FindGameObjectWithTag("Enemy");
+                EnemyStats enemyStats = theEnemy.GetComponent<EnemyStats>();
                 //Instantiate(explosion, hit.transform.position, Quaternion.identity);
                 enemyStats.healthPoint -= weaponDamage;
+                Debug.Log(enemyStats.healthPoint);
             	//Destroy(hit.transform.gameObject);
                 shootDelayCounter = shootDelay;
             }
