@@ -20,6 +20,9 @@ public class EnemyStats : MonoBehaviour
 		
         if(healthPoint <= 0)
         {
+            GameObject gameplayScore = GameObject.Find("GameObject");
+            CoreGamePlay scoring = gameplayScore.GetComponent<CoreGamePlay>();
+            scoring.currentScore = scoring.currentScore + 10;
             Destroy(this.gameObject);
         }
 
