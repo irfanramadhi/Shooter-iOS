@@ -28,6 +28,21 @@ public class ConnectionManager : MonoBehaviour
         Debug.Log("Message from server is : " + evt.data + "OnUserConnected");
     }
 
+    string JsonToString(string target, string s)
+    {
+        string[] newString = Regex.Split(target, s);
+        return newString[1];
+    }
+
+    Vector3 JsonToVector3(string target)
+    {
+        Vector3 newVector;
+        string[] newString = Regex.Split(target, ",");
+        newVector = new Vector3(float.Parse(newString[0]), float.Parse(newString[1]), float.Parse(newString[2]));
+
+        return newVector;
+    }
+
     void OnUserDisconnected(SocketIOEvent obj)
     {
 
