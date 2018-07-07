@@ -1,4 +1,5 @@
-﻿ using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class TouchManager : MonoBehaviour
@@ -7,13 +8,17 @@ public class TouchManager : MonoBehaviour
 
     public GameObject explosion;
     public float shootDelay = 0.75f;
-    
+    public Text ammo_reserve;
+    public int maxAmmo;
+    public int currentAmmo;
 
     public int weaponDamage;
 
 	// Use this for initialization
 	void Start ()
     {
+        //maxAmmo = 90;
+        //currentAmmo = 30;
         //GameObject theEnemy = GameObject.Find("Cube(Clone)");
         //EnemyStats enemyStats = theEnemy.GetComponent<EnemyStats>();
         weaponDamage = 10;
@@ -23,10 +28,14 @@ public class TouchManager : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+        //ammo_reserve.text = currentAmmo + " / " + maxAmmo;
         shootDelayCounter -= Time.deltaTime;
+
+
 
 		if(Input.GetMouseButton(0))
 		{
+            //currentAmmo--;
 			Vector3 mousePosFar = new Vector3(Input.mousePosition.x,
 												 Input.mousePosition.y,
 												 Camera.main.farClipPlane);
