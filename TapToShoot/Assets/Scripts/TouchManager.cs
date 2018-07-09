@@ -50,12 +50,12 @@ public class TouchManager : MonoBehaviour
 
         	if (Physics.Raycast(mousePosN, mousePosF-mousePosN, out hit) && shootDelayCounter < 0)
         	{
-                print(hit.collider.name);
+                //print(hit.collider.name);
                 GameObject theEnemy = GameObject.Find(hit.collider.name);
                 EnemyStats enemyStats = theEnemy.GetComponent<EnemyStats>();
                 //Instantiate(explosion, hit.transform.position, Quaternion.identity);
                 enemyStats.healthPoint -= weaponDamage;
-                Debug.Log(enemyStats.healthPoint);
+                //Debug.Log(enemyStats.healthPoint);
             	//Destroy(hit.transform.gameObject);
                 shootDelayCounter = shootDelay;
             }
