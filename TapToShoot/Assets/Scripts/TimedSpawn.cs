@@ -25,7 +25,7 @@ public class TimedSpawn : MonoBehaviour
     {
         timer += Time.deltaTime;
         int seconds = Mathf.RoundToInt(timer % 60);
-        Debug.Log("Seconds : " + seconds);
+        //Debug.Log("Seconds : " + seconds);
 	
         if(seconds % 4 == 0)
         {
